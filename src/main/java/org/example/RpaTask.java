@@ -83,13 +83,13 @@ public class RpaTask {
         InvoicePage invoicePage = new InvoicePage(driver);
         if (object instanceof InputDto) {
             InputDto inputDto = (InputDto) object;
-
+            invoicePage.setInvoice(inputDto);
         }
     }
 
     private void login() {
         driver.get("http://invoices.com");
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.setLogin("user1");
         loginPage.setPassword("user2");
         loginPage.clickLoginButton();
